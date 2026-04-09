@@ -137,7 +137,7 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Why Us", href: "#why-us" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
@@ -606,16 +606,14 @@ function WhyUs() {
   );
 }
 
-const GALLERY = [
+const GALLERY_PREVIEW = [
   { src: "/images/new-construction.jpg", alt: "New driveway construction" },
-  { src: "/images/house.jpg", alt: "Residential driveway paving" },
+  { src: "/images/services-bg.jpg", alt: "Steamroller paving fresh asphalt" },
   { src: "/images/railroad.jpg", alt: "Railroad work crew" },
-  { src: "/images/excavation.jpg", alt: "Excavation site preparation" },
-  { src: "/images/road-construction.jpg", alt: "Road construction crew at work" },
-  { src: "/images/truck.jpg", alt: "Diamond Paving truck on site" },
+  { src: "/images/house.jpg", alt: "Residential driveway paving" },
 ];
 
-function Gallery() {
+function GalleryPreview() {
   return (
     <section id="gallery" className="py-24 bg-gray-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -632,13 +630,11 @@ function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-          {GALLERY.map((img, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {GALLERY_PREVIEW.map((img) => (
             <div
               key={img.src}
-              className={`relative overflow-hidden rounded-xl group ${
-                i === 0 || i === 5 ? "row-span-2 aspect-[3/4]" : "aspect-[4/3]"
-              }`}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl group"
             >
               <Image
                 src={img.src}
@@ -652,6 +648,16 @@ function Gallery() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a
+            href="/gallery"
+            className="inline-flex items-center gap-2 bg-blue hover:bg-blue-dark text-white px-8 py-3.5 rounded-xl font-semibold transition-colors shadow-sm"
+          >
+            View Full Gallery
+            <ChevronRightIcon className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>
@@ -913,7 +919,7 @@ export default function Home() {
       <StatsSection />
       <About />
       <WhyUs />
-      <Gallery />
+      <GalleryPreview />
       <Testimonials />
       <Contact />
       <Footer />
