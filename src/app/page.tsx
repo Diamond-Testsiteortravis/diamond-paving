@@ -137,6 +137,7 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Why Us", href: "#why-us" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
@@ -145,36 +146,42 @@ const SERVICES = [
   {
     icon: RoadIcon,
     title: "Residential Paving",
+    image: "/images/house.jpg",
     description:
       "Beautiful, durable driveways and subdivision roads built to last. We handle everything from new installations to complete resurfacing.",
   },
   {
     icon: TruckIcon,
     title: "Commercial Paving",
+    image: "/images/new-construction.jpg",
     description:
       "Parking lots, access roads, and commercial surfaces. Professional excavating, grading, basing, and hauling for projects of any scale.",
   },
   {
     icon: ShieldIcon,
     title: "Sealcoating",
+    image: "/images/road-construction.jpg",
     description:
       "Protect your investment with professional sealcoating. Extends pavement life, prevents cracking, and restores that rich, dark finish.",
   },
   {
     icon: WrenchIcon,
     title: "Repairs & Patching",
+    image: "/images/project-7.jpg",
     description:
       "Asphalt patching, crack filling, and pavement restoration. We fix potholes, crumbling edges, and surface damage quickly and affordably.",
   },
   {
     icon: ExcavatorIcon,
     title: "Excavation & Grading",
+    image: "/images/excavation.jpg",
     description:
       "Complete site preparation including excavation, grading, and base work. We ensure a solid foundation for every paving project.",
   },
   {
     icon: SnowflakeIcon,
     title: "Snow Removal",
+    image: "/images/truck.jpg",
     description:
       "Keep your property safe and accessible all winter. Reliable commercial and residential snow removal services you can count on.",
   },
@@ -241,7 +248,7 @@ function Navbar() {
               </a>
             ))}
             <a
-              href="https://clienthub.getjobber.com/client_hubs/2b717a6a-be6a-4fa0-a172-a498934720e3/public/work_request/new?source=embedded_work_request"
+              href="https://clienthub.getjobber.com/hubs/5ab88812-35b1-4325-8beb-e7d03e4e7260/public/requests/1179353/new?source=social_media"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue hover:bg-blue-dark text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors shadow-sm"
@@ -276,7 +283,7 @@ function Navbar() {
               </a>
             ))}
             <a
-              href="https://clienthub.getjobber.com/client_hubs/2b717a6a-be6a-4fa0-a172-a498934720e3/public/work_request/new?source=embedded_work_request"
+              href="https://clienthub.getjobber.com/hubs/5ab88812-35b1-4325-8beb-e7d03e4e7260/public/requests/1179353/new?source=social_media"
               target="_blank"
               rel="noopener noreferrer"
               className="block bg-blue text-white text-center px-6 py-3 rounded-lg text-sm font-semibold mt-2"
@@ -296,22 +303,15 @@ function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a5c] via-[#1e4d7a] to-[#2980C4]" />
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          }}
-        />
-      </div>
-
-      {/* Decorative diamond shapes */}
-      <div className="absolute top-20 left-10 w-32 h-32 border border-blue/20 rotate-45 rounded-lg" />
-      <div className="absolute bottom-32 right-16 w-24 h-24 border border-blue/15 rotate-45 rounded-lg" />
-      <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-blue/5 rotate-45 rounded" />
+      {/* Background photo */}
+      <Image
+        src="/images/project-7.jpg"
+        alt="Asphalt paving work"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a5c]/90 via-[#1e4d7a]/85 to-[#2980C4]/80" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         {/* Badge */}
@@ -338,7 +338,7 @@ function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
-            href="https://clienthub.getjobber.com/client_hubs/2b717a6a-be6a-4fa0-a172-a498934720e3/public/work_request/new?source=embedded_work_request"
+            href="https://clienthub.getjobber.com/hubs/5ab88812-35b1-4325-8beb-e7d03e4e7260/public/requests/1179353/new?source=social_media"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-blue hover:bg-blue-dark text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all shadow-lg shadow-blue/25 flex items-center gap-2"
@@ -405,15 +405,26 @@ function Services() {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="group relative bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-blue/20 transition-all duration-300"
+              className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-blue/20 transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-blue/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue group-hover:text-white text-blue transition-colors duration-300">
-                <service.icon className="w-8 h-8" />
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-3 left-3 w-12 h-12 bg-blue/90 backdrop-blur-sm rounded-lg flex items-center justify-center text-white">
+                  <service.icon className="w-6 h-6" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-dark mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray leading-relaxed">{service.description}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-dark mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray leading-relaxed">{service.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -459,13 +470,14 @@ function About() {
     <section id="about" className="py-24 bg-gray-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image placeholder */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-dark to-dark-light rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
-              <div className="text-center p-8">
-                <DiamondLogo className="w-24 h-24 mx-auto mb-6 opacity-30" />
-                <p className="text-white/30 text-lg">Diamond Paving Inc.</p>
-              </div>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/travis-diamond.jpg"
+                alt="Travis Diamond, CEO of Diamond Paving Inc."
+                fill
+                className="object-cover object-top"
+              />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-blue text-white rounded-2xl p-6 shadow-xl">
@@ -585,6 +597,58 @@ function WhyUs() {
                 <p className="text-gray leading-relaxed">
                   {reason.description}
                 </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const GALLERY = [
+  { src: "/images/new-construction.jpg", alt: "New driveway construction" },
+  { src: "/images/house.jpg", alt: "Residential driveway paving" },
+  { src: "/images/railroad.jpg", alt: "Railroad work crew" },
+  { src: "/images/excavation.jpg", alt: "Excavation site preparation" },
+  { src: "/images/road-construction.jpg", alt: "Road construction crew at work" },
+  { src: "/images/truck.jpg", alt: "Diamond Paving truck on site" },
+];
+
+function Gallery() {
+  return (
+    <section id="gallery" className="py-24 bg-gray-light">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-blue font-semibold text-sm uppercase tracking-widest">
+            Our Work
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3 mb-4">
+            Project Gallery
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray text-lg">
+            See the quality of our work firsthand. From driveways to commercial
+            projects, every job gets the Diamond standard.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {GALLERY.map((img, i) => (
+            <div
+              key={img.src}
+              className={`relative overflow-hidden rounded-xl group ${
+                i === 0 || i === 5 ? "row-span-2 aspect-[3/4]" : "aspect-[4/3]"
+              }`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-white text-sm font-medium translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                {img.alt}
               </div>
             </div>
           ))}
@@ -728,7 +792,7 @@ function Contact() {
                 guaranteed.
               </p>
               <a
-                href="https://clienthub.getjobber.com/client_hubs/2b717a6a-be6a-4fa0-a172-a498934720e3/public/work_request/new?source=embedded_work_request"
+                href="https://clienthub.getjobber.com/hubs/5ab88812-35b1-4325-8beb-e7d03e4e7260/public/requests/1179353/new?source=social_media"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 bg-blue hover:bg-blue-dark text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all shadow-lg shadow-blue/25 w-full justify-center"
@@ -849,6 +913,7 @@ export default function Home() {
       <StatsSection />
       <About />
       <WhyUs />
+      <Gallery />
       <Testimonials />
       <Contact />
       <Footer />
