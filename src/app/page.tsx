@@ -217,11 +217,46 @@ const TESTIMONIALS = [
 
 // ─── Components ───────────────────────────────────────────────────────────────
 
+function TopBar() {
+  return (
+    <div className="bg-dark text-white text-sm hidden sm:block">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
+        <div className="flex items-center gap-6">
+          <a href="tel:5406356194" className="flex items-center gap-2 hover:text-blue transition-colors">
+            <PhoneIcon className="w-4 h-4" />
+            (540) 635-6194
+          </a>
+          <a href="mailto:diamondpavinginc@gmail.com" className="flex items-center gap-2 hover:text-blue transition-colors">
+            <MailIcon className="w-4 h-4" />
+            diamondpavinginc@gmail.com
+          </a>
+        </div>
+        <div className="flex items-center gap-4 text-white/60">
+          <span className="flex items-center gap-1.5">
+            <MapPinIcon className="w-3.5 h-3.5" />
+            Front Royal, VA
+          </span>
+          <span>|</span>
+          <a
+            href="https://instagram.com/dpaving2019"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue transition-colors"
+          >
+            @dpaving2019
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+      <TopBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -313,7 +348,7 @@ function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a5c]/90 via-[#1e4d7a]/85 to-[#2980C4]/80" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
           <span className="w-2 h-2 bg-blue rounded-full animate-pulse" />
@@ -908,6 +943,291 @@ function Footer() {
   );
 }
 
+function Process() {
+  const steps = [
+    {
+      step: "01",
+      title: "Free Consultation",
+      description:
+        "Contact us to discuss your project. We'll visit your site, assess the scope of work, and understand your needs.",
+    },
+    {
+      step: "02",
+      title: "Detailed Estimate",
+      description:
+        "Receive a clear, written estimate with no hidden fees. We break down every cost so you know exactly what to expect.",
+    },
+    {
+      step: "03",
+      title: "Professional Execution",
+      description:
+        "Our experienced crew arrives on schedule with top-grade materials and equipment to complete your project efficiently.",
+    },
+    {
+      step: "04",
+      title: "Final Walkthrough",
+      description:
+        "We walk the finished project with you to ensure every detail meets your expectations before we consider the job done.",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-blue font-semibold text-sm uppercase tracking-widest">
+            How It Works
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3 mb-4">
+            Simple, Transparent Process
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray text-lg">
+            From first call to finished project, we make paving easy. Here&apos;s
+            what to expect when you work with Diamond Paving.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-8 relative">
+          {/* Connecting line */}
+          <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-blue/20" />
+
+          {steps.map((s) => (
+            <div key={s.step} className="relative text-center">
+              <div className="w-20 h-20 bg-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative z-10 shadow-lg shadow-blue/20">
+                {s.step}
+              </div>
+              <h3 className="text-lg font-bold text-dark mb-2">{s.title}</h3>
+              <p className="text-gray text-sm leading-relaxed">
+                {s.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustBadges() {
+  return (
+    <section className="py-12 bg-gray-light border-y border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-10">
+          <Image
+            src="/images/bbb.png"
+            alt="BBB Accredited Business"
+            width={150}
+            height={80}
+            className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+          />
+          <Image
+            src="/images/licensed-insured.jpeg"
+            alt="Licensed and Insured"
+            width={150}
+            height={64}
+            className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity"
+          />
+          <div className="flex items-center gap-2 text-dark/60">
+            <svg className="w-8 h-8 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <div>
+              <div className="font-bold text-dark text-sm">Fully Insured</div>
+              <div className="text-xs text-gray">Liability &amp; Workers Comp</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-dark/60">
+            <svg className="w-8 h-8 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+            <div>
+              <div className="font-bold text-dark text-sm">5-Star Rated</div>
+              <div className="text-xs text-gray">Google &amp; Facebook</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-dark/60">
+            <svg className="w-8 h-8 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <div className="font-bold text-dark text-sm">20+ Years</div>
+              <div className="text-xs text-gray">In Business</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ServiceAreas() {
+  const areas = [
+    "Front Royal",
+    "Warren County",
+    "Winchester",
+    "Strasburg",
+    "Woodstock",
+    "Luray",
+    "Culpeper",
+    "Warrenton",
+    "Shenandoah County",
+    "Clarke County",
+    "Fauquier County",
+    "Rappahannock County",
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="text-blue font-semibold text-sm uppercase tracking-widest">
+              Service Area
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3 mb-6">
+              Proudly Serving the Shenandoah Valley
+            </h2>
+            <p className="text-gray text-lg leading-relaxed mb-8">
+              Based in Front Royal, Virginia, Diamond Paving Inc. provides
+              professional paving services throughout the northern Shenandoah
+              Valley and surrounding communities. No project is too far &mdash;
+              contact us to confirm service in your area.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {areas.map((area) => (
+                <div
+                  key={area}
+                  className="flex items-center gap-2 text-dark text-sm"
+                >
+                  <CheckCircleIcon className="w-4 h-4 text-blue flex-shrink-0" />
+                  {area}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl bg-blue/5">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99022.67854286515!2d-78.25!3d38.918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b5e3ccb2d2c0e7%3A0x4d78e0a1a5e2e0a0!2sFront%20Royal%2C%20VA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Diamond Paving service area - Front Royal, VA"
+              className="rounded-2xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const faqs = [
+    {
+      q: "How much does a new driveway cost?",
+      a: "Every project is unique. Cost depends on size, grade, drainage needs, and base condition. Contact us for a free, no-obligation estimate tailored to your property.",
+    },
+    {
+      q: "How long does a paving project take?",
+      a: "Most residential driveways are completed in 1-2 days. Larger commercial projects may take longer. We'll provide a clear timeline during your estimate.",
+    },
+    {
+      q: "Do you offer financing or payment plans?",
+      a: "We work with you to find a payment arrangement that fits your budget. Contact us to discuss options for your specific project.",
+    },
+    {
+      q: "How long should I wait before driving on new asphalt?",
+      a: "We recommend waiting 24-48 hours before driving on new asphalt. Full curing takes about 6-12 months, during which you should avoid heavy equipment and sharp turns.",
+    },
+    {
+      q: "What is sealcoating and do I need it?",
+      a: "Sealcoating is a protective layer applied to asphalt surfaces. It prevents water damage, UV deterioration, and oil stains. We recommend sealcoating every 2-3 years to maximize pavement life.",
+    },
+    {
+      q: "Are you licensed and insured?",
+      a: "Yes. Diamond Paving Inc. is fully licensed, insured (liability and workers comp), and BBB accredited. We're happy to provide proof of insurance upon request.",
+    },
+  ];
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <section className="py-24 bg-gray-light">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-blue font-semibold text-sm uppercase tracking-widest">
+            FAQ
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mt-3 mb-4">
+            Common Questions
+          </h2>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl border border-gray-200 overflow-hidden"
+            >
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+              >
+                <span className="font-semibold text-dark pr-4">{faq.q}</span>
+                <svg
+                  className={`w-5 h-5 text-blue flex-shrink-0 transition-transform ${
+                    openIndex === i ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {openIndex === i && (
+                <div className="px-6 pb-6 text-gray leading-relaxed">
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MobileCTA() {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 flex gap-3 sm:hidden z-50">
+      <a
+        href="tel:5406356194"
+        className="flex-1 flex items-center justify-center gap-2 bg-dark text-white py-3 rounded-lg font-semibold text-sm"
+      >
+        <PhoneIcon className="w-4 h-4" />
+        Call Now
+      </a>
+      <a
+        href="https://clienthub.getjobber.com/hubs/5ab88812-35b1-4325-8beb-e7d03e4e7260/public/requests/1179353/new?source=social_media"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 flex items-center justify-center gap-2 bg-blue text-white py-3 rounded-lg font-semibold text-sm"
+      >
+        Free Quote
+      </a>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -915,14 +1235,19 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <TrustBadges />
       <Services />
+      <Process />
       <StatsSection />
       <About />
       <WhyUs />
       <GalleryPreview />
       <Testimonials />
+      <ServiceAreas />
+      <FAQ />
       <Contact />
       <Footer />
+      <MobileCTA />
     </>
   );
 }

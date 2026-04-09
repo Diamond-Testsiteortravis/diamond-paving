@@ -35,3 +35,9 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@media (max-width: 639px) {
+  footer {
+    padding-bottom: 4.5rem;
+  }
+}
