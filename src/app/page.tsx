@@ -702,7 +702,7 @@ function GalleryPreview() {
 function GoogleReviewBadge() {
   return (
     <a
-      href="https://www.google.com/search?q=Diamond+Paving+Inc+Front+Royal+VA+reviews"
+      href="https://www.google.com/maps/search/Diamond+Paving+Inc+565+Loop+Road+Front+Royal+VA"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-4 bg-white rounded-2xl px-8 py-5 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
