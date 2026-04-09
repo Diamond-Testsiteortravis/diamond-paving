@@ -872,13 +872,11 @@ function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.jpg"
-                alt="Diamond Paving Inc."
-                width={200}
-                height={55}
-                className="h-12 w-auto brightness-0 invert"
-              />
+              <DiamondLogo className="w-10 h-10" />
+              <div>
+                <span className="text-xl font-bold text-white">Diamond Paving</span>
+                <span className="block text-xs text-white/50 uppercase tracking-widest">Inc. &mdash; Where Quality Counts</span>
+              </div>
             </div>
             <p className="text-white/50 leading-relaxed max-w-md">
               Professional asphalt paving contractor serving Front Royal,
